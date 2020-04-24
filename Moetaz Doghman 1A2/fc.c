@@ -31,11 +31,11 @@ perso.h=61;
 perso.w=64;
  return (perso) ; 
 }
-box initialisation_box(box nar)
+enemy initialisation_box(enemy nar)
 {
-nar.posbox.x=200;nar.posbox.y=600; //638.5
+nar.posen.x=200;nar.posen.y=600; //638.5
 
-nar.box=IMG_Load("feu.png");
+nar.en=IMG_Load("feu.png");
  return (nar) ; 
 }
 
@@ -44,14 +44,36 @@ nar.box=IMG_Load("feu.png");
 void afficher (enemy enemy1,SDL_Surface *ecran)
 {SDL_BlitSurface( enemy1.en,NULL,ecran,&enemy1.posen);}
 
-void afficher_nar (box nar,SDL_Surface *ecran)
+void afficher_nar (enemy nar,SDL_Surface *ecran)
 {
-  SDL_BlitSurface( nar.box,NULL,ecran,&nar.posbox);
+  SDL_BlitSurface( nar.en,NULL,ecran,&nar.posen);
 }
 
-void afficher_perso (personnage perso ,box nar,SDL_Surface *ecran,int *d)
+void afficher_perso (personnage perso ,enemy nar,SDL_Surface *ecran,int *d)
 {
-  if ((nar.posbox.x==perso.posperso.x))
+  if ((nar.posen.x==perso.posperso.x))
     *d=2;
  if (*d!=2){SDL_BlitSurface( perso.perso,NULL,ecran,&perso.posperso);}
 }
+
+
+
+
+int callenemy(personnage per, enemy en)
+{
+
+    if ((per.posperso.x +per.perso->w > en.posen.x) && (per.posperso.x < en.posen.x ) )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+
+
+
+
+

@@ -5,7 +5,7 @@
 #include "fc.h"
 int main(int argc, char **argv[]) //Fonctions principales 
 {  SDL_Event event;
-int continuer =1;
+int continuer =1,vie=3,die1=0,die2=0;
 int x,y,d=1;
  SDL_Init(SDL_INIT_VIDEO) ; 
  SDL_Surface *ecran = NULL ; 
@@ -15,7 +15,7 @@ lvl1 = IMG_Load("back.png") ;
  enemy enemy1;
  personnage perso;
 
-box nar;
+enemy nar;
 SDL_Rect positionDuFond  ;
 positionDuFond.x= 0 ;
 positionDuFond.y= 0 ;
@@ -52,10 +52,20 @@ break;
  }
   SDL_BlitSurface ( lvl1 , NULL , ecran , &positionDuFond) ;
   enemy1 = deplacement_aleatoire(enemy1);
-  afficher (enemy1,ecran); 
+  
+   die1=callenemy(perso, enemy1);
+   die2=callenemy(perso,nar);
+   
+afficher (enemy1,ecran); 
   afficher_perso (perso,nar,ecran,&d);
   afficher_nar (nar,ecran);
+      if ((die1 ==1)||(die2 ==1))
+   {
+        perso.posperso.x += 300;
+      
+      vie--; 
 
+   }
 SDL_Flip(ecran);
       }
 

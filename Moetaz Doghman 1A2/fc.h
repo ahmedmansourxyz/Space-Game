@@ -31,10 +31,9 @@ typedef struct boxx box;
 enemy deplacement_aleatoire(enemy enemyy);
 enemy intialisation_enemy(enemy enemyy);
 personnage initialisation_perso(personnage perso);
-box initialisation_box(box nar);
+enemy initialisation_box(enemy nar);
 void afficher (enemy enemy1,SDL_Surface *ecran);
-void afficher_perso (personnage perso,box nar,SDL_Surface *ecran,int *d);
-void afficher_nar (box nar,SDL_Surface *ecran);
+void afficher_perso (personnage perso,enemy nar,SDL_Surface *ecran,int *d);
+void afficher_nar (enemy nar,SDL_Surface *ecran);
 
-
-
+int callenemy(personnage per, enemy en);
