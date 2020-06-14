@@ -1,0 +1,3 @@
+gcc main1.c  fonction1.h -o prog -lSDL -lSDL_image -lSDL_mixer
+gcc main2.c  fonction2.h -o prog -lSDL -lSDL_image -lSDL_mixer
+gcc main3.c  fonction3.h -o prog -lSDL -lSDL_image -lSDL_mixer
